@@ -16,7 +16,7 @@ This repository contains code sample using restAssured with Cucumber and Maven  
   
   # **Runner** :- 
   
-     # CMD ====>  mvn test   from the level of project (cd // APIs_BDD_Test-master)
+     # CMD ====>  mvn test   from the level of project Ex (cd Downloads/ APIs_BDD_Test-master)
      # or we can run TestRunner class    <cucumberOption.TestRunner>
      # we will find cucumber HTML Reporort created inside target/Reports/cucumber/html.html
 
@@ -27,7 +27,7 @@ This repository contains code sample using restAssured with Cucumber and Maven  
      
    # **Note** :- 
      
-     # in case of java != 16 we can change the project structure to use the current java version 
+     # in case of java version != 16 we can change the project structure to use the current java version 
 
 
      
