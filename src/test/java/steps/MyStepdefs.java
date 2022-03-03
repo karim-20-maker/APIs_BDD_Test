@@ -7,12 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
+import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static base.Data.*;
-import static org.hamcrest.number.OrderingComparison.greaterThan;
+import static org.testng.AssertJUnit.assertTrue;
 
 public class MyStepdefs {
     RequestSpecification getRequest ;
@@ -40,11 +44,19 @@ public class MyStepdefs {
 
 
 
-    @Then("Should get numViews value from numViews Path and that value should be greater than  {string}")
-    public void should_get_numViews_value_from_numViews_Path_and_that_value_should_be_greater_than( String value) {
-        response.then().assertThat()  // make sure that num views  >  4000
-                .body(numViews_Path,greaterThan(value));
-        System.out.println( "3-here is the actual numviews ===>  " + response.then().extract().path(numViews_Path).toString()); // extract the real numview value from response body!
+    @Then("Should get numViews value from numViews Path and that value should be greater than  {int}")
+    public void should_get_numViews_value_from_numViews_Path_and_that_value_should_be_greater_than( Integer value) {
+        List<String> numViews = XmlPath.from(response.asString()).getList("patterns.pattern.numViews");
+
+        for (int i = 0 ; i < numViews.size() ; i ++ ) {
+            String nums = response.then().extract().path("patterns.pattern[" + i + "].numViews").toString();
+
+            System.out.println("3-here is the actual numviews of [ " + (i+1) +"'st elment ] ===> " + response.then().extract().path("patterns.pattern[" + i + "].numViews").toString()); // log the real numview value from response body!
+            assertTrue((Integer.parseInt(nums)) > value); // assert that all num values > 4000
+
+
+        }
+
     }
 
     @And("the API call must got success with status code  {int}")
