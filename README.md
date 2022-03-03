@@ -16,13 +16,18 @@ This repository contains code sample using restAssured with Cucumber and Maven  
   
   # **Runner** :- 
   
-     # CMD ====>  mvn test 
+     # CMD ====>  mvn test   from the level of project (cd // APIs_BDD_Test-master)
      # or we can run TestRunner class    <cucumberOption.TestRunner>
-     # we will find cucumber HTML Reporort created inside target/Reports
+     # we will find cucumber HTML Reporort created inside target/Reports/cucumber/html.html
 
   # **Target** :- 
   
      # Create a cucumber BDD solution utilising RestAssured framework to accomplish the following. “Make a GET request to colourlovers api http://www.colourlovers.com/api/patterns and write an assertion for <numViews> (from response) to be greater than 4000
+     
+     
+   # **Note** :- 
+     
+     # in case of java != 16 we can change the project structure to use the current java version 
 
 
      
