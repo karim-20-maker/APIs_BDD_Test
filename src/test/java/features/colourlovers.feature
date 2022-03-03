@@ -8,4 +8,4 @@ Feature: Validating numView API's
     And the API call must got success with status code  <statusCode>
     Examples:
         | value |  statusCode |
-        | "4000" | 200 |
+        | 4000 | 200 |
