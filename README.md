@@ -27,7 +27,12 @@ This repository contains code sample using restAssured with Cucumber and Maven  
      
    # **Note** :- 
      
-     # in case of java version != 16 we can change the project structure to use the current java version 
+     # in case of java version != 16 we canWe can change the default SDK for projetcs modules to the current installed java version as following : 
+          1- Open File menu 
+          2- Open Project Structure 
+          3- Choose from the dropdown menu the available java version 
+          4- Click Apply then OK 
+          After that you might need to restart the IDE
 
 
      
